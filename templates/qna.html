@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Q&A | Video Insight AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/qna.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Royal Background Elements -->
+    <div class="royal-elements">
+        <div class="royal-element"></div>
+        <div class="royal-element"></div>
+        <div class="royal-element"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="royal-header">
+        <div class="container royal-header-content">
+            <div class="royal-logo">
+                <span>Video Insight AI</span>
+            </div>
+            <nav class="royal-nav">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}#features">Features</a></li>
+                    <li><a href="{{ url_for('home') }}#how-it-works">How It Works</a></li>
+                    <li><a href="{{ url_for('home') }}#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <section class="royal-page-header">
+            <a href="{{ url_for('home') }}" class="royal-back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+            <h1 class="royal-page-title">
+                <i class="fas fa-comments"></i>
+                Video Q&A
+            </h1>
+            <p class="royal-page-subtitle">Ask intelligent questions and get instant AI-powered answers about your video content</p>
+        </section>
+
+        <!-- Q&A Chat Interface -->
+        <section class="royal-qna-section">
+            <div class="royal-qna-container">
+                <!-- Chat Header -->
+                <div class="royal-chat-header">
+                    <div class="royal-chat-info">
+                        <div class="royal-ai-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="royal-chat-details">
+                            <h3>AI Video Assistant</h3>
+                            <p>Ready to answer your questions about the video</p>
+                        </div>
+                    </div>
+                    <div class="royal-chat-stats">
+                        <div class="royal-stat">
+                            <span class="royal-stat-value" id="royal-questions-count">0</span>
+                            <span class="royal-stat-label">Questions</span>
+                        </div>
+                        <div class="royal-stat">
+                            <span class="royal-stat-value">24/7</span>
+                            <span class="royal-stat-label">Available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="royal-messages-container" id="royal-messages-container">
+                    <!-- Messages will be loaded here dynamically -->
+                    
+                    <!-- Typing Indicator -->
+                    <div class="royal-typing-indicator" id="royal-typing-indicator">
+                        <div class="royal-typing-dots">
+                            <div class="royal-typing-dot"></div>
+                            <div class="royal-typing-dot"></div>
+                            <div class="royal-typing-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="royal-input-area">
+                    <div class="royal-input-container">
+                        <div class="royal-input-wrapper">
+                            <textarea 
+                                class="royal-input" 
+                                id="royal-input"
+                                placeholder="Ask a question about the video content..."
+                                rows="1"
+                            ></textarea>
+                            <div class="royal-input-actions">
+                                <button class="royal-input-btn" title="Attach File">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <button class="royal-input-btn" title="Emoji">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="royal-send-btn" id="royal-send-btn" title="Send Message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="royal-features-section">
+            <h2 class="royal-section-title">Explore Other Features</h2>
+            <div class="royal-features-grid">
+                <a href="{{ url_for('transcript') }}" class="royal-feature-card">
+                    <div class="royal-feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Video Transcript</h3>
+                    <p>Get accurate transcript of your video content with timestamps and speaker identification</p>
+                    <span class="royal-feature-link">Try it now <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="{{ url_for('summarize_page') }}" class="royal-feature-card">
+                    <div class="royal-feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Video Summary</h3>
+                    <p>Get concise, AI-generated summaries capturing the essence of your video content</p>
+                    <span class="royal-feature-link">Try it now <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <a href="{{ url_for('notes') }}" class="royal-feature-card">
+                    <div class="royal-feature-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <h3>Video Notes</h3>
+                    <p>Generate structured, organized notes with key points and actionable insights</p>
+                    <span class="royal-feature-link">Try it now <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="royal-footer">
+        <div class="container royal-footer-content">
+            <div class="royal-footer-logo">
+                <i class="fas fa-crown"></i>
+                <span>Video Insight AI</span>
+            </div>
+
+            <div class="royal-footer-links">
+                <a href="{{ url_for('home') }}#about">About</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="{{ url_for('home') }}#contact">Contact</a>
+            </div>
+
+            <div class="royal-social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <p class="royal-copyright">© 2025 Video Insight AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/qna.js') }}"></script>
+</body>
+</html>
